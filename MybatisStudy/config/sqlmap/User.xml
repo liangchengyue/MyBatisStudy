@@ -21,6 +21,8 @@
 	<!-- 根据用户名称模糊查询查询用户信息,可能返回多条 -->
 	<!-- resultType：指定就是单条记录所映射的java对象类型 -->
 	<!-- ${}:表示拼接SQL串，将接收到参数的内容不加任何修饰拼接在sql中 -->
+	<!-- 使用${}拼接SQL会导致SQL注入 -->
+	<!-- ${value}：接收输入参数的内容，如果传入的是简单类型，${}中只能是value -->
 	<select id="findUserByName" parameterType="java.lang.String"
 		resultType="com.lcy.pojo.User">
 		SELECT * FROM user WHERE username LIKE '%${value}%'

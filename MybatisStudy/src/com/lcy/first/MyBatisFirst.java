@@ -48,7 +48,7 @@ public class MyBatisFirst {
 		// 通过工厂得到SQLSession
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		// list中的user和映射文件中resultType所指定的类型一致
-		List<User> list = sqlSession.selectList("test.findUserByName", "%小明%");
+		List<User> list = sqlSession.selectList("test.findUserByName", "小明");
 		System.out.println(list);
 		sqlSession.close();
 	}
