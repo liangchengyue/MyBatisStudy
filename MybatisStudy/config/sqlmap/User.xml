@@ -27,4 +27,12 @@
 		resultType="com.lcy.pojo.User">
 		SELECT * FROM user WHERE username LIKE '%${value}%'
 	</select>
+	<!-- 添加用户 -->
+	<!-- parameterType：指定输入参数类型是pojo(包括用户信息) -->
+	<!-- #{}中指定pojo的属性名，接收到pojo对象的属性值，mybatis通过OGNL获取对象的属性值 -->
+	<insert id="insertUser" parameterType="com.lcy.pojo.User">
+		INSERT INTO
+		USER(id,username,birthday,sex,address)
+		VALUE(#{id},#{username},#{birthday},#{sex},#{address});
+	</insert>
 </mapper>
