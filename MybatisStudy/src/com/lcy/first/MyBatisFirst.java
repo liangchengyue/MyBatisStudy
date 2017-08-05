@@ -73,6 +73,8 @@ public class MyBatisFirst {
 		sqlSession.insert("test.insertUser", user);
 		//提交事务
 		sqlSession.commit();
+		//获取用户信息主键
+		System.out.println(user.getId());
 		sqlSession.close();
 	}
 }
