@@ -55,4 +55,21 @@
 		<!--user(id,username,birthday,sex,address) -->
 		<!--VALUE(#{id},#{username},#{birthday},#{sex},#{address}); -->
 	</insert>
+	<!-- 删除用户 -->
+	<!-- 根据id删除用户，需要输入id值 -->
+	<delete id="deleteUser" parameterType="java.lang.Integer">
+		DELETE FROM user WHERE
+		id=#{id}
+	</delete>
+	<!-- 根据id更新用户 -->
+	<!-- 分析： -->
+	<!-- 需要传入用户的id -->
+	<!-- 需要传入用户的更新信息 -->
+	<!-- parameterType指定user对象，包括id和更新信息，注意：id必须存在 -->
+	<!-- #{id}：从输入user对象中获取id属性值 -->
+	<update id="updateUser" parameterType="com.lcy.pojo.User">
+		UPDATE user SET
+		username=#{username},birthday=#{birthday},sex=#{sex},address=#{address}
+		WHERE id=#{id}
+	</update>
 </mapper>

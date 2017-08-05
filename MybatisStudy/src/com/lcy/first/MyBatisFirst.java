@@ -64,7 +64,6 @@ public class MyBatisFirst {
 				.build(inputStream);
 		// 通过工厂得到SQLSession
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		// list中的user和映射文件中resultType所指定的类型一致
 		User user=new User();
 		user.setUsername("王小丫");
 		user.setSex("女");
@@ -75,6 +74,45 @@ public class MyBatisFirst {
 		sqlSession.commit();
 		//获取用户信息主键
 		System.out.println(user.getId());
+		sqlSession.close();
+	}
+	@Test
+	public void deleteUser() throws IOException {
+		// mybatis配置文件
+		String resource = "SqlMapConfig.xml";
+		// 得到配置文件流
+		InputStream inputStream = Resources.getResourceAsStream(resource);
+		// 创建会话工厂，传入mybatis的配置文件信息
+		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder()
+				.build(inputStream);
+		// 通过工厂得到SQLSession
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		sqlSession.delete("test.deleteUser", 27);
+		//提交事务
+		sqlSession.commit();
+		sqlSession.close();
+	}
+	@Test
+	public void updatetUser() throws IOException {
+		// mybatis配置文件
+		String resource = "SqlMapConfig.xml";
+		// 得到配置文件流
+		InputStream inputStream = Resources.getResourceAsStream(resource);
+		// 创建会话工厂，传入mybatis的配置文件信息
+		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder()
+				.build(inputStream);
+		// 通过工厂得到SQLSession
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		User user=new User();
+		user.setUsername("王小军");
+		user.setSex("男");
+		user.setBirthday(new Date());
+		user.setAddress("贵州贵阳");
+		//必须设置
+		user.setId(26);
+		sqlSession.insert("test.updateUser", user);
+		//提交事务
+		sqlSession.commit();
 		sqlSession.close();
 	}
 }
