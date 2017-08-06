@@ -1,6 +1,5 @@
 package com.lcy.vo;
 
-import com.lcy.pojo.User;
 import com.lcy.pojo.UserCustom;
 
 /**

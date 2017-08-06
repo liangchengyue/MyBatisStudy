@@ -5,6 +5,14 @@
 <!--namespace命名空间，作用是对SQL进行分类化管理 -->
 <!--注意：使用mapper代理方法开发，namespace有特殊重要的作用,namespace等于mapper接口地址 -->
 <mapper namespace="com.lcy.mapper.IUserMapper">
+	<!-- 用户信息综合查询 -->
+	<!-- #{userCustom.sex}:取出pojo包装对象中性别的值 -->
+	<!-- ${userCustom.username}:取出pojo包装对象中用户名称值 -->
+	<select id="findUserList" parameterType="com.lcy.vo.UserQuer" resultType="com.lcy.pojo.UserCustom">
+		SELECT * FROM user WHERE
+		user.sex=#{userCustom.sex} AND user.username LIKE
+		'%${userCustom.username}%'
+	</select>
 	<!--在映射文件中配置很多sql语句 -->
 	<!-- 需求：通过id查询用户表的记录 -->
 	<!-- 通过select执行数据库查询 -->
