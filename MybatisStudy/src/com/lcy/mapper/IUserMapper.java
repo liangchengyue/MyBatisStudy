@@ -24,4 +24,7 @@ public interface IUserMapper {
 
 	// 用户信息综合查询总数
 	public int findUserCount(UserQuer userQuer) throws Exception;
+
+	// 根据id查询用户信息，使用resultMap输出
+	public User findUserByIdResultMap(int id) throws Exception;
 }

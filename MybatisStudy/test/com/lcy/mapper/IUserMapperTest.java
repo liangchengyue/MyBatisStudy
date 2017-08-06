@@ -81,4 +81,14 @@ public class IUserMapperTest {
 		sqlSession.close();
 		System.out.println(count);
 	}
+	@Test
+	public void testFindUserByIdResultMap() throws Exception {
+		SqlSession sqlSession=sqlSessionFactory.openSession();
+		//创建UserMapper对象，mybatis自动生成mapper代理对象
+		IUserMapper userMapper=sqlSession.getMapper(IUserMapper.class);
+		//调用userMapper的方法
+		User user=userMapper.findUserByIdResultMap(1);
+		sqlSession.close();
+		System.out.println(user);
+	}
 }
