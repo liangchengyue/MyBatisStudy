@@ -1,5 +1,7 @@
 package com.lcy.vo;
 
+import java.util.List;
+
 import com.lcy.pojo.UserCustom;
 
 /**
@@ -10,6 +12,15 @@ import com.lcy.pojo.UserCustom;
  */
 public class UserQuer {
 	private UserCustom userCustom;
+	private List<Integer> ids;
+
+	public List<Integer> getIds() {
+		return ids;
+	}
+
+	public void setIds(List<Integer> ids) {
+		this.ids = ids;
+	}
 
 	public UserCustom getUserCustom() {
 		return userCustom;
