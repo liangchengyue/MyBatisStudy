@@ -21,4 +21,7 @@ public interface IUserMapper {
 
 	// 用户信息综合查询
 	public List<UserCustom> findUserList(UserQuer userQuer) throws Exception;
+
+	// 用户信息综合查询总数
+	public int findUserCount(UserQuer userQuer) throws Exception;
 }
