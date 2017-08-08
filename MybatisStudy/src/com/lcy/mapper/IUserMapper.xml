@@ -28,7 +28,7 @@
 	<sql id="query_user_where">
 		<if test="userCustom!=null">
 			<if test="userCustom.sex!=null and userCustom.sex!=''">
-				and user.sex=#{userCustom.sex} AND
+				and user.sex=#{userCustom.sex}
 			</if>
 			<if test="userCustom.username!=null and userCustom.username!=''">
 				and user.username LIKE '%${userCustom.username}%'

@@ -85,7 +85,7 @@ public class IUserMapperTest {
 		UserQuer userQuer = new UserQuer();
 		UserCustom userCustom = new UserCustom();
 		userCustom.setSex("1");
-		userCustom.setUsername("张三丰");
+		userCustom.setUsername("小明");
 		userQuer.setUserCustom(userCustom);
 		// 传入id
 		List<Integer> ids = new ArrayList<Integer>();
